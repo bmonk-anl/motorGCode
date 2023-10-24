@@ -31,11 +31,8 @@ commands that can be sent at any time and will execute within 10s of millisecond
 * set acceleration: (same as move)
 * set velocity: (same as move)
 * home command `G28`
-    *  `[X]`: flag to home X axis
-    *  `[Y]`: flag to home Y axis
-    *  `[Z]`: flag to home Z axis
-    * Example: `G28 X Z ; home the X and Z axes`
-    * Example: `G28 Y; home just the Y axis`
+    * `G28`: does a rapid move to store home location
+    * `G28.1` sets the stored home position to the current location in machine coordinatekjs
 
 ## stop
 
