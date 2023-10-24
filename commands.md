@@ -2,11 +2,17 @@
 
 Organized by methods that need to be overwritten
 
+## General Notes:
+
+* motor module methods can only reference one axis at a time, so only use g codes with 1 motor
+    * need to figure out how to translate motor number into X, Y, Z, etc.
+
 ## move 
 
 * set acceleration:
-* set velocity:
-* send position:
+* set velocity:         F<velocity>
+    * sets feed rate
+* move:                 G1 X<position>
 
 ## moveVelocity 
 
@@ -33,6 +39,6 @@ Organized by methods that need to be overwritten
 
 ## setPosition
 
-* set position:
+* set position: G92 X<position>
 
 ## setClosedLoop (?)
