@@ -6,6 +6,9 @@ Organized by methods that need to be overwritten
 
 * motor module methods can only reference one axis at a time, so only use g codes with 1 motor
     * need to figure out how to translate motor number into X, Y, Z, etc.
+* ";" is a the comment character in G-code
+* Probably should use "realtime" Grbl commands when possible, which are single character ASCII
+commands that can be sent at any time and will execute within 10s of milliseconds.
 
 ## move 
 
@@ -19,27 +22,38 @@ Organized by methods that need to be overwritten
 
 * set acceleration: (same as move)
 * set velocity: (same as move)
-* jog command:
+* jog command: `$J=`
+    * [Grbl jogging](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Jogging)
+
 
 ## home 
 
 * set acceleration: (same as move)
 * set velocity: (same as move)
-* home command
+* home command `G28`
+    *  `[X]`: flag to home X axis
+    *  `[Y]`: flag to home Y axis
+    *  `[Z]`: flag to home Z axis
+    * Example: `G28 X Z ; home the X and Z axes`
+    * Example: `G28 Y; home just the Y axis`
 
 ## stop
 
-* stop command:
+* stop command: `!`
+    - `~` (Grbl realtime): Resume
+    - `M0` is the G-code pause. `!` is probably better here
 
 ## poll
 
-* read position:
-* read moving status:
-* read limit status:
-* read drive on status:
+`?` gets a realtime status report which *should* be able to provide all the below info:
+* position
+* moving status
+* limit status
+* drive on status
 
 ## setPosition
 
-* set position: G92 X\<position\>
+* set position (coordinate system offset): `G92`
+    * get the current value of the offset with the `$#` command
 
 ## setClosedLoop (?)
