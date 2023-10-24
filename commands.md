@@ -10,9 +10,10 @@ Organized by methods that need to be overwritten
 ## move 
 
 * set acceleration:
-* set velocity:         F<velocity>
-    * sets feed rate
-* move:                 G1 X<position>
+* set velocity:         F\<feed rate\>
+    * sets feed rate (velocity) in either in/s or mm/s depending on how controller is configured
+* move:                 G1 X\<position\>
+    * can also move with specified feed rate: G1 X<position> F\<feed rate\>
 
 ## moveVelocity 
 
@@ -39,6 +40,6 @@ Organized by methods that need to be overwritten
 
 ## setPosition
 
-* set position: G92 X<position>
+* set position: G92 X\<position\>
 
 ## setClosedLoop (?)
